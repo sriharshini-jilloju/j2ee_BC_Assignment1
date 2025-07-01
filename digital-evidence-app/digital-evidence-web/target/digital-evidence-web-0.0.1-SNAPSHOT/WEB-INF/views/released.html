@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Released Evidences</title>
+</head>
+<body>
+	<div style="display: flex; justify-content: center;">
+		<div style="text-align: center;">
+			<h1>Released Evidences</h1>
+
+			<!-- Create Evidence Button -->
+			<p>
+				<a href="/digital-evidence/evidence/create-evidence"
+					style="padding: 8px 12px; background-color: #6a6565; color: white; text-decoration: none; border-radius: 4px;">
+					Create Evidence </a>
+			</p>
+
+			<table cellspacing="10" style="margin: 0 auto;">
+				<tr>
+					<td>Filters:</td>
+					<td><a href="/digital-evidence/evidence/all">All Evidences</a></td>
+					<td><a href="/digital-evidence/evidence/incustody">In-Custody
+							Evidences</a></td>
+					<td><span>Released Evidences</span></td>
+
+				</tr>
+			</table>
+
+			<table border="1" style="margin: 20px auto;">
+				<tr>
+					<th>Evidence ID</th>
+					<th>Description</th>
+					<th>Source Officer/Department</th>
+					<th>Last Custodian Name</th>
+					<th>Encryption Status</th>
+					<th>Aquisition Date</th>
+					<th>Custody Status</th>
+				</tr>
+
+				<tr th:each="evidence : ${evidences}">
+					<td th:text="${evidence.id}"></td>
+					<td th:text="${evidence.description}"></td>
+					<td th:text="${evidence.sourceOfficer}"></td>
+					<td th:text="${evidence.lastCustodianName}"></td>
+					<td th:text="${evidence.encrypted}"></td>
+					<td th:text="${evidence.acquisitionDate}"></td>
+					<td
+						th:text="${evidence.custodyStatus == T(org.digital.evidence.ejb.entity.Evidence.CustodyStatus).IN_CUSTODY} ? 'In Custody' : 'Released'"
+						th:style="${evidence.custodyStatus == T(org.digital.evidence.ejb.entity.Evidence.CustodyStatus).IN_CUSTODY} ? 'color:orange;' : 'color:green;'">
+					</td>
+
+				</tr>
+
+			</table>
+
+			<p>
+				Total: <span th:text="${total}"></span>
+			</p>
+		</div>
+	</div>
+</body>
+</html>

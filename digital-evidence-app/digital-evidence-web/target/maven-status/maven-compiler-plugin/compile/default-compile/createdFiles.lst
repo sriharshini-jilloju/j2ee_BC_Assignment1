@@ -1,0 +1,4 @@
+com\example\web\AppConfig.class
+com\example\web\controller\EvidenceController.class
+com\example\web\ThymeleafConfig.class
+com\example\web\WebMvcConfig.class

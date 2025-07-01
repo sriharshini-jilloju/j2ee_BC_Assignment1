@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Create New Evidence</title>
+</head>
+<body>
+	<div style="display: flex; justify-content: center;">
+		<div style="width: 450px; margin-top: 40px;">
+			<h2 style="text-align: center;">Create New Evidence</h2>
+			<form th:action="@{/evidence/save}" th:object="${evidence}"
+				method="post">
+
+				<!--                 <div style="margin-bottom: 12px;">
+                    <label style="display: inline-block; width: 180px;">Description:</label>
+                    <input type="text" th:field="*{description}" style="width: 240px;" required />
+                </div>
+
+                <div style="margin-bottom: 12px;">
+                    <label style="display: inline-block; width: 180px;">Source Officer/Department:</label>
+                    <input type="text" th:field="*{sourceOfficer}" style="width: 240px;" required />
+                </div>
+
+                <div style="margin-bottom: 12px;">
+                    <label style="display: inline-block; width: 180px;">Last Custodian Name:</label>
+                    <input type="text" th:field="*{lastCustodianName}" style="width: 240px;" required />
+                </div>
+
+                <div style="margin-bottom: 12px;">
+                    <label style="display: inline-block; width: 180px;">Encrypted:</label>
+                    <select th:field="*{encrypted}" style="width: 248px;">
+                        <option th:value="true">True</option>
+                        <option th:value="false" selected>False</option>
+                    </select>
+                </div>
+
+                <div style="margin-bottom: 12px;">
+                    <label style="display: inline-block; width: 180px;">Acquisition Date:</label>
+                    <input type="date" th:field="*{acquisitionDate}" style="width: 240px;" required />
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <label style="display: inline-block; width: 180px;">Custody Status:</label>
+                    <select th:field="*{custodyStatus}" style="width: 248px;">
+                        <option th:value="IN_CUSTODY">In Custody</option>
+                        <option th:value="RELEASED">Released</option>
+                    </select>
+                </div> -->
+
+				<!-- Description -->
+				<div style="margin-bottom: 12px;">
+					<label style="display: inline-block; width: 180px;">Description:</label>
+					<input type="text" th:field="*{description}" style="width: 240px;"
+						required />
+					<div th:if="${#fields.hasErrors('description')}"
+						th:errors="*{description}" style="color: red;"></div>
+				</div>
+
+				<!-- Source Officer/Department -->
+				<div style="margin-bottom: 12px;">
+					<label style="display: inline-block; width: 180px;">Source
+						Officer/Department:</label> <input type="text" th:field="*{sourceOfficer}"
+						style="width: 240px;" required />
+					<div th:if="${#fields.hasErrors('sourceOfficer')}"
+						th:errors="*{sourceOfficer}" style="color: red;"></div>
+				</div>
+
+				<!-- Last Custodian Name -->
+				<div style="margin-bottom: 12px;">
+					<label style="display: inline-block; width: 180px;">Last
+						Custodian Name:</label> <input type="text" th:field="*{lastCustodianName}"
+						style="width: 240px;" required />
+					<div th:if="${#fields.hasErrors('lastCustodianName')}"
+						th:errors="*{lastCustodianName}" style="color: red;"></div>
+				</div>
+
+				<!-- Encrypted -->
+				<div style="margin-bottom: 12px;">
+					<label style="display: inline-block; width: 180px;">Encrypted:</label>
+					<select th:field="*{encrypted}" style="width: 248px;">
+						<option th:value="true">True</option>
+						<option th:value="false">False</option>
+					</select>
+					<div th:if="${#fields.hasErrors('encrypted')}"
+						th:errors="*{encrypted}" style="color: red;"></div>
+				</div>
+
+				<!-- Acquisition Date -->
+				<div style="margin-bottom: 12px;">
+					<label style="display: inline-block; width: 180px;">Acquisition
+						Date:</label> <input type="date" th:field="*{acquisitionDate}"
+						style="width: 240px;" required />
+					<div th:if="${#fields.hasErrors('acquisitionDate')}"
+						th:errors="*{acquisitionDate}" style="color: red;"></div>
+				</div>
+
+				<!-- Custody Status -->
+				<div style="margin-bottom: 20px;">
+					<label style="display: inline-block; width: 180px;">Custody
+						Status:</label> <select th:field="*{custodyStatus}" style="width: 248px;">
+						<option th:value="IN_CUSTODY">In Custody</option>
+						<option th:value="RELEASED">Released</option>
+					</select>
+					<div th:if="${#fields.hasErrors('custodyStatus')}"
+						th:errors="*{custodyStatus}" style="color: red;"></div>
+				</div>
+
+
+				<div style="text-align: center;">
+					<button type="submit" style="padding: 6px 12px;">Save
+						Evidence</button>
+					<a href="/digital-evidence/evidence/all"
+						style="margin-left: 10px; text-decoration: none; color: red;">Cancel</a>
+				</div>
+
+			</form>
+		</div>
+	</div>
+</body>
+</html>

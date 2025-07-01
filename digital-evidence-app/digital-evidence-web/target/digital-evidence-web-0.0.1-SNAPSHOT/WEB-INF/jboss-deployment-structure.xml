@@ -1,0 +1,10 @@
+<jboss-deployment-structure>
+    <deployment>
+        <dependencies>
+            <!-- Access EJB module inside EAR -->
+            <module name="deployment.digital-evidence-ear-0.0.1-SNAPSHOT.ear.digital-evidence-ejb.jar" services="import"/>
+            <module name="org.springframework.spring-aop" optional="true"/>
+            <module name="org.springframework.data" optional="true"/>
+        </dependencies>
+    </deployment>
+</jboss-deployment-structure>

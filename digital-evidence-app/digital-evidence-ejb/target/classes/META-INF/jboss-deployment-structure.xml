@@ -1,0 +1,10 @@
+<jboss-deployment-structure>
+    <deployment>
+        <exclude-subsystems>
+            <subsystem name="spring" />
+        </exclude-subsystems>
+        <dependencies>
+            <module name="deployment.digital-evidence-ejb.jar" />
+        </dependencies>
+    </deployment>
+</jboss-deployment-structure>
